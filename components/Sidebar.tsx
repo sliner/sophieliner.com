@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -8,11 +9,8 @@ const Sidebar: React.FC = () => {
     }`;
 
   return (
-    <nav className="w-full md:w-48 pt-10 px-8 md:px-0 bg-white">
+    <nav className="w-full md:w-48 pt-6 pb-20 md:pb-0 px-8 md:px-0 bg-white text-center md:text-left">
       <div className="space-y-4">
-        <NavLink to="/" className={linkClass}>
-          home
-        </NavLink>
         <NavLink to="/videos" className={linkClass}>
           videos
         </NavLink>

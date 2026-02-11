@@ -1,17 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sophie Liner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
-        
         body {
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-            font-family: 'Host Grotesk', sans-serif;
+            /* Arial is requested specifically */
+            font-family: 'Arial', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         .no-scrollbar::-webkit-scrollbar {
@@ -25,10 +27,26 @@
         .font-light {
             font-weight: 300;
         }
+        
+        /* Ensure the light weight of Arial is used if available, 
+           otherwise standard Arial with light weight setting */
+        h1, h2, h3, a, p {
+            font-weight: 300;
+        }
     </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
