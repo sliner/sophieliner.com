@@ -4,38 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>Sophie Liner - Artist, Radio Producer & Archival Researcher</title>
-    <meta name="title" content="Sophie Liner - Artist, Radio Producer & Archival Researcher">
-    <meta name="description" content="Sophie Liner is a Paris-based artist, radio producer, and archival researcher. Explore her video art, radio productions for France Culture, and film archival work.">
-    <meta name="keywords" content="Sophie Liner, artist, video art, radio producer, France Culture, archival researcher, documentaliste, Paris artist, contemporary art">
-    <meta name="author" content="Sophie Liner">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.sophieliner.com/">
-    <meta property="og:title" content="Sophie Liner - Artist, Radio Producer & Archival Researcher">
-    <meta property="og:description" content="Paris-based artist, radio producer for France Culture, and archival researcher. Explore video art, radio productions, and film archival work.">
-    <meta property="og:image" content="https://www.sophieliner.com/og-image.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.sophieliner.com/">
-    <meta property="twitter:title" content="Sophie Liner - Artist, Radio Producer & Archival Researcher">
-    <meta property="twitter:description" content="Paris-based artist, radio producer for France Culture, and archival researcher.">
-    <meta property="twitter:image" content="https://www.sophieliner.com/og-image.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.sophieliner.com/">
-    
+    <title>Sophie Liner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-            font-family: 'Arial', sans-serif;
+            /* Grotesk-style font stack */
+            font-family: "Helvetica Neue", Helvetica, "Inter", Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -55,32 +32,19 @@
             font-weight: 300;
         }
     </style>
-    
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Sophie Liner",
-      "url": "https://www.sophieliner.com",
-      "image": "https://www.sophieliner.com/og-image.jpg",
-      "jobTitle": "Artist, Radio Producer, Archival Researcher",
-      "description": "Paris-based artist, radio producer for France Culture, and archival researcher specializing in video art and documentary research.",
-      "knowsAbout": ["Video Art", "Radio Production", "Archival Research", "Contemporary Art", "Documentary"],
-      "workLocation": {
-        "@type": "Place",
-        "name": "Paris, France"
-      },
-      "sameAs": [
-        "https://www.youtube.com/@eve_ontrak",
-        "https://www.linkedin.com/in/sophieliner/",
-        "https://soundcloud.com/eve_ontrak"
-      ]
-    }
-    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
 </body>
 </html>

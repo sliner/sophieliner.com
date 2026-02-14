@@ -1,7 +1,12 @@
-
 import { VideoItem, ProjectItem } from './types';
 
 export const VIDEOS: VideoItem[] = [
+  {
+    id: 'inside-wires',
+    title: 'Inside Wires',
+    youtubeId: '0KB1Z9cRgOw',
+    description: '2026'
+  },
   {
     id: 'horizon',
     title: 'have you seen the horizon l8tly?',

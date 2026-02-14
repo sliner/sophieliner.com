@@ -3,11 +3,14 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div className="space-y-12 animate-in fade-in duration-1000 flex flex-col items-center md:items-start">
+    <div className="space-y-8 md:space-y-12 animate-in fade-in duration-1000 flex flex-col items-center md:items-start">
       <header className="w-full text-center md:text-left">
-        <h1 className="text-5xl md:text-7xl font-light tracking-tighter text-[#555555]">
+        <h1 className="text-5xl md:text-7xl font-light tracking-tight text-[#444444]">
           Sophie Liner
         </h1>
+        <p className="text-[11px] md:text-sm italic tracking-[0.3em] text-gray-400 font-light mt-4 lowercase">
+          video artist
+        </p>
       </header>
 
       <section className="w-full max-w-3xl aspect-video bg-white overflow-hidden relative">

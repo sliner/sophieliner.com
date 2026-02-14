@@ -1,45 +1,20 @@
-# Sophie Liner Portfolio - PRODUCTION + SEO OPTIMIZED ✅
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-## What's Included
+# Run and deploy your AI Studio app
 
-### Production Fixes:
-1. ✅ **Removed Tailwind CDN** - Properly installed locally
-2. ✅ **Added configuration files** for Tailwind, PostCSS
-3. ✅ **Updated index.tsx** to import CSS
-4. ✅ **Updated index.html** with proper setup
+This contains everything you need to run your app locally.
 
-### SEO Optimizations (NEW!):
-1. ✅ **Meta tags** - Title, description, keywords for Google
-2. ✅ **Open Graph tags** - For Facebook, LinkedIn sharing
-3. ✅ **Twitter Card tags** - For Twitter sharing
-4. ✅ **Structured data (JSON-LD)** - Helps Google understand your site
-5. ✅ **Sitemap.xml** - Lists all your pages for search engines
-6. ✅ **Robots.txt** - Guides search crawlers
-7. ✅ **Canonical URL** - Prevents duplicate content issues
+View your app in AI Studio: https://ai.studio/apps/drive/1NRTLNqYExld36b8k95F8V10-J6g-NAMK
 
-## How to Deploy
+## Run Locally
 
-### Step 1: Upload to GitHub
+**Prerequisites:**  Node.js
 
-1. Go to: https://github.com/sliner/sophieliner.com
-2. Click **"Add file"** → **"Upload files"**
-3. **Delete old files first**, then drag ALL files from this folder
-4. Commit the changes
 
-### Step 2: Vercel Auto-Deploys
-
-Vercel will automatically redeploy within 2-3 minutes!
-
-### Step 3: Submit to Google (IMPORTANT!)
-
-After deployment:
-1. Go to: https://search.google.com/search-console
-2. Add your website
-3. Submit your sitemap: `https://www.sophieliner.com/sitemap.xml`
-
-📖 **Read SEO-GUIDE.md** for complete instructions on ranking higher in Google!
-
-## Your Live Site
-
-- ✅ https://www.sophieliner.com
-- ✅ https://sophieliner.com
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
