@@ -14,6 +14,9 @@ const Sidebar: React.FC = () => {
         <NavLink to="/videos" className={linkClass}>
           videos
         </NavLink>
+        <NavLink to="/paintings" className={linkClass}>
+          paintings
+        </NavLink>
         <NavLink to="/radio" className={linkClass}>
           radio
         </NavLink>

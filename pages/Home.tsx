@@ -8,9 +8,6 @@ const Home: React.FC = () => {
         <h1 className="text-5xl md:text-7xl font-light tracking-tight text-[#444444]">
           Sophie Liner
         </h1>
-        <p className="text-[11px] md:text-sm italic tracking-[0.3em] text-gray-400 font-light mt-4 lowercase">
-          video artist
-        </p>
       </header>
 
       <section className="w-full max-w-3xl aspect-video bg-white overflow-hidden relative">

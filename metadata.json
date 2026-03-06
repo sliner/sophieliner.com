@@ -1,6 +1,6 @@
 {
   "name": "Sophie Liner",
-  "description": "Official portfolio of Sophie Liner. Artist, radio producer, and archival researcher.",
+  "description": "Artist",
   "requestFramePermissions": [
     "camera",
     "microphone"
