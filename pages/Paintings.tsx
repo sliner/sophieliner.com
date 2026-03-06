@@ -39,8 +39,8 @@ const paintings: Painting[] = [
     id: 4,
     title: "Big white pigeon",
     year: "2024",
-    imageUrl: "https://i.imgur.com/7t5Ly2s.jpg",
-    galleryUrl: "https://imgur.com/gallery/big-white-pigeon-7t5Ly2s",
+    imageUrl: "https://i.imgur.com/sSGqZel.jpg",
+    galleryUrl: "https://imgur.com/sSGqZel",
     medium: "Oil on wood"
   },
   {
