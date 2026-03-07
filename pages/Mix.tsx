@@ -4,6 +4,13 @@ import React from 'react';
 const Mix: React.FC = () => {
   const mixItems = [
     {
+      title: "Japanese Cinema",
+      url: "https://soundcloud.com/eve_ontrak/japanese-cinema",
+      description: "",
+      duration: "45:00",
+      year: "2026"
+    },
+    {
       title: "Summer (sad) mix",
       url: "https://soundcloud.com/eve_ontrak/earth-is-burning-summer-mix",
       description: "Earth is burning.",
@@ -42,9 +49,11 @@ const Mix: React.FC = () => {
                   )}
                   
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-light text-gray-300">
-                      {item.description}
-                    </p>
+                    {item.description && (
+                      <p className="text-sm font-light text-gray-300">
+                        {item.description}
+                      </p>
+                    )}
                     <p className="text-xs text-gray-300 italic font-light tracking-widest uppercase">
                       {item.duration} / {item.year}
                     </p>
