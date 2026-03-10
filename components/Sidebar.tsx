@@ -15,7 +15,7 @@ const Sidebar: React.FC = () => {
           videos
         </NavLink>
         <NavLink to="/paintings" className={linkClass}>
-          paintings
+          paintings & sculptures
         </NavLink>
         <NavLink to="/radio" className={linkClass}>
           radio

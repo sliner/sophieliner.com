@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { paintings } from '../src/data/paintings';
+import { artworks } from '../src/data/paintings';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const PaintingDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   
-  const currentIndex = paintings.findIndex(p => p.id === Number(id));
-  const painting = paintings[currentIndex];
+  const currentIndex = artworks.findIndex(p => p.id === Number(id));
+  const artwork = artworks[currentIndex];
 
-  const prevPainting = currentIndex > 0 ? paintings[currentIndex - 1] : null;
-  const nextPainting = currentIndex < paintings.length - 1 ? paintings[currentIndex + 1] : null;
+  const prevArtwork = currentIndex > 0 ? artworks[currentIndex - 1] : null;
+  const nextArtwork = currentIndex < artworks.length - 1 ? artworks[currentIndex + 1] : null;
 
-  if (!painting) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  if (!artwork) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-400 mb-4">Painting not found</p>
+          <p className="text-gray-400 mb-4">Artwork not found</p>
           <Link to="/paintings" className="text-sm uppercase tracking-widest text-[#555555] hover:underline">
             Back to gallery
           </Link>
@@ -26,6 +28,9 @@ const PaintingDetail: React.FC = () => {
       </div>
     );
   }
+
+  const allImages = [artwork.imageUrl, ...(artwork.additionalImages || [])];
+  const currentImage = selectedImage || artwork.imageUrl;
 
   return (
     <motion.div 
@@ -55,86 +60,126 @@ const PaintingDetail: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-9 flex items-center gap-2 md:gap-8 relative group">
-            {/* Left Arrow (Desktop) */}
-            <div className="hidden md:flex w-12 justify-center shrink-0">
-              {prevPainting && (
-                <button 
-                  onClick={() => navigate(`/paintings/${prevPainting.id}`)}
-                  className="text-gray-300 hover:text-[#555555] transition-colors"
-                >
-                  <ChevronLeft size={48} strokeWidth={1} />
-                </button>
-              )}
-            </div>
-
-            {/* Image Container */}
-            <div className="flex-1 flex justify-center relative">
-              {/* Mobile Navigation Overlays */}
-              <div className="absolute inset-0 flex md:hidden z-10">
-                <div 
-                  className="w-1/2 h-full cursor-pointer" 
-                  onClick={() => prevPainting && navigate(`/paintings/${prevPainting.id}`)}
-                />
-                <div 
-                  className="w-1/2 h-full cursor-pointer" 
-                  onClick={() => nextPainting && navigate(`/paintings/${nextPainting.id}`)}
-                />
+          <div className="lg:col-span-9 flex flex-col items-center gap-8 relative group">
+            <div className="flex items-center gap-2 md:gap-8 w-full">
+              {/* Left Arrow (Desktop) */}
+              <div className="hidden md:flex w-12 justify-center shrink-0">
+                {prevArtwork && (
+                  <button 
+                    onClick={() => {
+                      setSelectedImage(null);
+                      navigate(`/paintings/${prevArtwork.id}`);
+                    }}
+                    className="text-gray-300 hover:text-[#555555] transition-colors"
+                  >
+                    <ChevronLeft size={48} strokeWidth={1} />
+                  </button>
+                )}
               </div>
 
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={painting.id}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.4 }}
-                  src={painting.imageUrl}
-                  alt={painting.title}
-                  className="max-w-full max-h-[85vh] object-contain"
-                  referrerPolicy="no-referrer"
-                />
-              </AnimatePresence>
+              {/* Image Container */}
+              <div className="flex-1 flex justify-center relative">
+                {/* Mobile Navigation Overlays */}
+                <div className="absolute inset-0 flex md:hidden z-10">
+                  <div 
+                    className="w-1/2 h-full cursor-pointer" 
+                    onClick={() => {
+                      if (prevArtwork) {
+                        setSelectedImage(null);
+                        navigate(`/paintings/${prevArtwork.id}`);
+                      }
+                    }}
+                  />
+                  <div 
+                    className="w-1/2 h-full cursor-pointer" 
+                    onClick={() => {
+                      if (nextArtwork) {
+                        setSelectedImage(null);
+                        navigate(`/paintings/${nextArtwork.id}`);
+                      }
+                    }}
+                  />
+                </div>
+
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImage}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.4 }}
+                    src={currentImage}
+                    alt={artwork.title}
+                    className="max-w-full max-h-[85vh] object-contain"
+                    referrerPolicy="no-referrer"
+                  />
+                </AnimatePresence>
+              </div>
+
+              {/* Right Arrow (Desktop) */}
+              <div className="hidden md:flex w-12 justify-center shrink-0">
+                {nextArtwork && (
+                  <button 
+                    onClick={() => {
+                      setSelectedImage(null);
+                      navigate(`/paintings/${nextArtwork.id}`);
+                    }}
+                    className="text-gray-300 hover:text-[#555555] transition-colors"
+                  >
+                    <ChevronRight size={48} strokeWidth={1} />
+                  </button>
+                )}
+              </div>
             </div>
 
-            {/* Right Arrow (Desktop) */}
-            <div className="hidden md:flex w-12 justify-center shrink-0">
-              {nextPainting && (
-                <button 
-                  onClick={() => navigate(`/paintings/${nextPainting.id}`)}
-                  className="text-gray-300 hover:text-[#555555] transition-colors"
-                >
-                  <ChevronRight size={48} strokeWidth={1} />
-                </button>
-              )}
-            </div>
+            {/* Thumbnail Navigation for Multiple Images */}
+            {allImages.length > 1 && (
+              <div className="flex gap-4 overflow-x-auto pb-4 max-w-full">
+                {allImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImage(img)}
+                    className={`w-20 h-20 shrink-0 border-2 transition-all ${
+                      currentImage === img ? 'border-[#555555]' : 'border-transparent opacity-50 hover:opacity-100'
+                    }`}
+                  >
+                    <img 
+                      src={img} 
+                      alt={`${artwork.title} view ${idx + 1}`} 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="lg:col-span-3">
             <motion.div
-              key={`info-${painting.id}`}
+              key={`info-${artwork.id}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
               <h1 className="text-2xl tracking-[0.1em] text-[#555555] font-grotesk mb-2">
-                {painting.title}
+                {artwork.title}
               </h1>
               <p className="text-xs tracking-[0.2em] text-gray-400 uppercase mb-6">
-                {painting.year}
+                {artwork.year}
               </p>
               
               <div className="space-y-4 border-t border-gray-100 pt-6">
                 <div>
                   <h3 className="text-[10px] uppercase tracking-[0.2em] text-gray-300 mb-1">Medium</h3>
-                  <p className="text-sm text-[#555555]">{painting.medium || 'Oil on wood'}</p>
+                  <p className="text-sm text-[#555555]">{artwork.medium || 'Oil on wood'}</p>
                 </div>
                 
-                {painting.description && (
+                {artwork.description && (
                   <div>
                     <h3 className="text-[10px] uppercase tracking-[0.2em] text-gray-300 mb-1">Description</h3>
                     <p className="text-sm text-[#555555] leading-relaxed">
-                      {painting.description}
+                      {artwork.description}
                     </p>
                   </div>
                 )}

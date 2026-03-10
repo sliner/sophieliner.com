@@ -1,4 +1,4 @@
-export interface Painting {
+export interface Artwork {
   id: number;
   title: string;
   year: string;
@@ -6,16 +6,19 @@ export interface Painting {
   galleryUrl?: string;
   medium?: string;
   description?: string;
+  type: 'painting' | 'sculpture';
+  additionalImages?: string[];
 }
 
-export const paintings: Painting[] = [
+export const artworks: Artwork[] = [
   {
     id: 1,
     title: "Tung Tung Tung Sahur",
     year: "2025",
     imageUrl: "https://i.imgur.com/8T0Zb46.jpg",
     galleryUrl: "https://imgur.com/8T0Zb46",
-    medium: "Oil on wood"
+    medium: "Oil on wood",
+    type: 'painting'
   },
   {
     id: 2,
@@ -23,7 +26,8 @@ export const paintings: Painting[] = [
     year: "2025",
     imageUrl: "https://i.imgur.com/anaxF4g.jpg",
     galleryUrl: "https://imgur.com/anaxF4g",
-    medium: "Oil on wood"
+    medium: "Oil on wood",
+    type: 'painting'
   },
   {
     id: 3,
@@ -31,7 +35,8 @@ export const paintings: Painting[] = [
     year: "2025",
     imageUrl: "https://i.imgur.com/v6LAmM8.jpg",
     galleryUrl: "https://imgur.com/v6LAmM8",
-    medium: "Oil on wood"
+    medium: "Oil on wood",
+    type: 'painting'
   },
   {
     id: 4,
@@ -39,7 +44,8 @@ export const paintings: Painting[] = [
     year: "2024",
     imageUrl: "https://i.imgur.com/sSGqZel.jpg",
     galleryUrl: "https://imgur.com/sSGqZel",
-    medium: "Oil on wood"
+    medium: "Oil on wood",
+    type: 'painting'
   },
   {
     id: 5,
@@ -47,6 +53,37 @@ export const paintings: Painting[] = [
     year: "2025",
     imageUrl: "https://i.imgur.com/4MmdbQ4.jpg",
     galleryUrl: "https://imgur.com/4MmdbQ4",
-    medium: "Oil on wood"
+    medium: "Oil on wood",
+    type: 'painting'
+  },
+  {
+    id: 6,
+    title: "Memphis",
+    year: "2024",
+    imageUrl: "https://i.imgur.com/uG1CI03.jpg",
+    galleryUrl: "https://imgur.com/gallery/memphis-tG9R6YF",
+    medium: "Céramique",
+    type: 'sculpture',
+    additionalImages: [
+      "https://i.imgur.com/FgcNb1j.jpg",
+      "https://i.imgur.com/XLBMVHE.jpg",
+      "https://i.imgur.com/DTGsOGj.jpg",
+      "https://i.imgur.com/62kZgE1.jpg"
+    ]
+  },
+  {
+    id: 7,
+    title: "Lola",
+    year: "2016",
+    imageUrl: "https://i.imgur.com/xcaqMZU.png",
+    galleryUrl: "https://imgur.com/a/lolala-XFRXF4V",
+    medium: "Céramique",
+    type: 'sculpture',
+    additionalImages: [
+      "https://i.imgur.com/fyDJRxF.png"
+    ]
   }
 ];
+
+// For backward compatibility if needed, but we should update usages
+export const paintings = artworks;
