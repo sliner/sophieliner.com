@@ -162,17 +162,17 @@ const PaintingDetail: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h1 className="text-2xl tracking-[0.1em] text-[#555555] font-grotesk mb-2">
+              <h1 className="text-lg tracking-[0.1em] text-[#555555] font-grotesk mb-2">
                 {artwork.title}
               </h1>
-              <p className="text-xs tracking-[0.2em] text-gray-400 uppercase mb-6">
+              <p className="text-[10px] tracking-[0.2em] text-gray-400 uppercase mb-6">
                 {artwork.year}
               </p>
               
               <div className="space-y-4 border-t border-gray-100 pt-6">
                 <div>
                   <h3 className="text-[10px] uppercase tracking-[0.2em] text-gray-300 mb-1">Medium</h3>
-                  <p className="text-sm text-[#555555]">{artwork.medium || 'Oil on wood'}</p>
+                  <p className="text-[11px] text-[#555555] font-sans font-normal">{artwork.medium || 'Oil on wood'}</p>
                 </div>
                 
                 {artwork.description && (

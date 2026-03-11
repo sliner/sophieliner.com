@@ -37,10 +37,10 @@ const Paintings: React.FC = () => {
             </div>
             
             <div className="mt-6">
-              <h2 className="text-lg tracking-[0.1em] text-[#555555] font-grotesk">
+              <h2 className="text-sm tracking-[0.1em] text-[#555555] font-grotesk">
                 {item.title}
               </h2>
-              <p className="text-xs tracking-[0.1em] text-gray-400 mt-1 uppercase">
+              <p className="text-[10px] tracking-[0.1em] text-gray-400 mt-1 uppercase font-sans font-normal">
                 {item.year}
                 {item.medium && ` — ${item.medium}`}
               </p>

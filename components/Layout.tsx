@@ -10,6 +10,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const isVideosPage = location.pathname === '/videos';
 
   return (
     <div 
@@ -35,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Main Content Area - Order 1 on mobile, 2 on desktop */}
       <main className={`flex-1 px-8 pb-10 md:pb-20 order-1 md:order-2 overflow-y-auto flex justify-center ${isHomePage ? 'pt-12 md:pt-16 items-start' : 'pt-24 md:pt-32 md:pr-16 md:pl-0 md:justify-start'}`}>
-        <div className={`${isHomePage ? 'w-full text-center' : 'w-full max-w-4xl'}`}>
+        <div className={`${isHomePage ? 'w-full text-center' : isVideosPage ? 'w-full max-w-6xl' : 'w-full max-w-4xl'}`}>
           {children}
         </div>
       </main>
