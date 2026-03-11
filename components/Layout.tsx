@@ -12,7 +12,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div className="min-h-screen bg-white flex flex-col md:flex-row relative">
+    <div 
+      className={`min-h-screen flex flex-col md:flex-row relative transition-colors duration-500 ${isHomePage ? 'text-white' : 'bg-white text-gray-800'}`}
+      style={isHomePage ? { 
+        backgroundImage: 'url(https://i.postimg.cc/mbBJBFsT/Screenshot-2026-03-10-at-16-30-30.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      } : {}}
+    >
       {/* Conditionally Render Top Center Home Button (not on home page) */}
       {!isHomePage && (
         <div className="w-full absolute top-8 left-0 flex justify-center z-50 pointer-events-none">
@@ -26,8 +34,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Main Content Area - Order 1 on mobile, 2 on desktop */}
-      <main className="flex-1 px-8 pt-24 pb-10 md:pt-32 md:pb-20 md:pr-16 md:pl-0 order-1 md:order-2 overflow-y-auto flex justify-center md:justify-start">
-        <div className="w-full max-w-4xl">
+      <main className={`flex-1 px-8 pb-10 md:pb-20 order-1 md:order-2 overflow-y-auto flex justify-center ${isHomePage ? 'pt-12 md:pt-16 items-start' : 'pt-24 md:pt-32 md:pr-16 md:pl-0 md:justify-start'}`}>
+        <div className={`${isHomePage ? 'w-full text-center' : 'w-full max-w-4xl'}`}>
           {children}
         </div>
       </main>
